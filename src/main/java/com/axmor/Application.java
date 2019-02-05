@@ -33,11 +33,15 @@ public class Application {
         //get("/login", (Request req, Response res) -> LoginController.authorization());
 
         //TODO: Доска задач
-        get("/", (Request req, Response res) -> DashboardController.get(freeMarkerEngine));
-        //get("/dashboard", (Request req, Response res) -> DashboardController.get());
+        get("/", (Request req, Response res) -> DashboardController.init(freeMarkerEngine));
+        get("/dashboard", (Request req, Response res) -> DashboardController.init(freeMarkerEngine));
+
+        //TODO: Обо мне
+        get("/about", (Request req, Response res) -> AboutController.init(freeMarkerEngine));
 
         //TODO: CRUD задач
         path("/issue", () -> {
+            get("/form", (Request req, Response res) -> IssueController.form(freeMarkerEngine));
             //post("/create", (Request req, Response res) -> IssueController.create());
             //get("/read", (Request req, Response res) -> IssueController.getById(0));
             //post("/update", (Request req, Response res) -> IssueController.update());

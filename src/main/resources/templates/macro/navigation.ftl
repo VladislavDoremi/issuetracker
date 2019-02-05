@@ -23,8 +23,8 @@
 </#macro>
 
 <#macro link_list>
-    <li><a href="#"><i class="fas fa-columns medium-icon"></i> Dashboard</a></li>
-    <li><a href="#"><i class="fas fa-info-circle medium-icon"></i> About Me</a></li>
+    <li><a href="/dashboard"><i class="fas fa-columns medium-icon"></i> Dashboard</a></li>
+    <li><a href="/about"><i class="fas fa-info-circle medium-icon"></i> About Me</a></li>
     <li><a href="#"><i class="fas fa-sign-in-alt medium-icon"></i> Sign In</a></li>
     <li><a href="#"><i class="fas fa-sign-out-alt medium-icon"></i> Sign Out</a></li>
 </#macro>

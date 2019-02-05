@@ -8,7 +8,7 @@ import java.util.*;
 
 public class DashboardController {
 
-    public static String get(FreeMarkerEngine freeMarkerEngine) {
+    public static String init(FreeMarkerEngine freeMarkerEngine) {
         Map<String, Object> model = new HashMap<String, Object>();
 
         List<Issue> issueList = new ArrayList<>();
@@ -17,12 +17,12 @@ public class DashboardController {
         issueList.add(new Issue(2, "Fart", "Issie1", "hgkjhkgh", 1));
         issueList.add(new Issue(3, "Gert", "Issie1", "dsfsfdsdsdfsdsdf324234234", 0));
         issueList.add(new Issue(4, "Tron", "Issie1", "dsfdfgfdgdf35gdbcb", 2));
-        issueList.add(new Issue(5, "Tron", "Issie1", "dsfdfgfdgdf35gdbcb", 2));
+        issueList.add(new Issue(5, "Tron", "Issie1", "dsfdfgfdgdf35gdbcb", 3));
         issueList.add(new Issue(6, "Tron", "Issie1", "dsfdfgfdgdf35gdbcb", 2));
-        issueList.add(new Issue(7, "Tron", "Issie1", "dsfdfgfdgdf35gdbcb", 2));
-        issueList.add(new Issue(8, "Tron", "Issie1", "dsfdfgfdgdf35gdbcb", 2));
+        issueList.add(new Issue(7, "Tron", "Issie1", "dsfdfgfdgdf35gdbcb", 1));
+        issueList.add(new Issue(8, "Tron", "Issie1", "dsfdfgfdgdf35gdbcb", 3));
         issueList.add(new Issue(9, "Tron", "Issie1", "dsfdfgfdgdf35gdbcb", 2));
-        issueList.add(new Issue(10, "Tron", "Issie1", "dsfdfgfdgdf35gdbcb", 2));
+        issueList.add(new Issue(10, "Tron", "Issie1", "dsfdfgfdgdf35gdbcb", 0));
         issueList.add(new Issue(11, "Tron", "Issie1", "dsfdfgfdgdf35gdbcb", 2));
         issueList.add(new Issue(12, "Tron", "Issie1", "dsfdfgfdgdf35gdbcb", 2));
         issueList.add(new Issue(13, "Tron", "Issie1", "dsfdfgfdgdf35gdbcb", 2));
@@ -31,8 +31,8 @@ public class DashboardController {
 
         model.put("issueList", issueList);
 
-        //return freeMarkerEngine.render(new ModelAndView(model, "dashboard.ftl"));
-        return freeMarkerEngine.render(new ModelAndView(model, "issue.ftl"));
+        return freeMarkerEngine.render(new ModelAndView(model, "dashboard.ftl"));
+
     }
 
     public static String update() {

@@ -1,6 +1,7 @@
 <#import "macro/dependency.ftl" as dependency_container>
 <#import "macro/navigation.ftl" as navigation_container>
 <#import "macro/issue/form.ftl" as issue_form_container>
+<#import "macro/footer.ftl" as footer_container>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -12,24 +13,24 @@
 <#-- Import js dependency -->
 <@dependency_container.body_dependency />
 
-<#-- Import navigation -->
-<@navigation_container.navigation/>
+<header>
+    <#-- Import navigation -->
+    <@navigation_container.navigation/>
+</header>
 
-<div class="container">
+<main>
+    <div class="container">
 
-    <div class="row">
-        <#-- Import issue form -->
-        <@issue_form_container.form/>
+        <div class="row">
+            <#-- Import issue form -->
+            <@issue_form_container.form/>
+        </div>
+
     </div>
+</main>
 
-    <#-- Create issue button -->
-    <div class="fixed-action-btn">
-        <a class="btn-floating btn-large waves-effect waves-light light-blue darken-2">
-            <i class="material-icons">save</i>
-        </a>
-    </div>
-</div>
+<#-- Import footer -->
+<@footer_container.footer/>
 
 </body>
-
 </html>

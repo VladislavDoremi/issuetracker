@@ -12,17 +12,17 @@
                 </div>
                 <div class="col l4 offset-l2 s12">
                     <h5 class="white-text">Technologies</h5>
-                    <ul style="font-size: x-large">
-                        <li>
-                            <i class="fab fa-google"></i>
-                            <i class="fab fa-git-square"></i>
-                            <i class="fab fa-github"></i>
-                            <i class="fab fa-gitkraken"></i>
-                            <i class="fab fa-linux"></i>
-                            <i class="fab fa-java"></i>
-                            <i class="fab fa-js-square"></i>
-                            <i class="fab fa-css3-alt"></i>
-                            <i class="fab fa-html5"></i>
+                    <ul>
+                        <li class="x-large-icon">
+                            <a href="https://www.google.com/" target="_blank"><i class="fab fa-google white-text"></i></a>
+                            <a href="https://git-scm.com/" target="_blank"><i class="fab fa-git-square white-text"></i></a>
+                            <a href="https://github.com/" target="_blank"><i class="fab fa-github white-text"></i></a>
+                            <a href="https://www.gitkraken.com/" target="_blank"><i class="fab fa-gitkraken white-text"></i></a>
+                            <a href="https://www.linux.org/" target="_blank"><i class="fab fa-linux white-text"></i></a>
+                            <a href="https://www.java.com/" target="_blank"><i class="fab fa-java white-text"></i></a>
+                            <a href="https://www.javascript.com/" target="_blank"><i class="fab fa-js-square white-text"></i></a>
+                            <a href="http://www.css3.info/" target="_blank"><i class="fab fa-css3-alt white-text"></i></a>
+                            <a href="https://www.html5tutorial.info/" target="_blank"><i class="fab fa-html5 white-text"></i></a>
                         </li>
                     </ul>
                 </div>

@@ -13,18 +13,22 @@
 <@dependency_container.body_dependency />
 
 <#-- Import navigation -->
-<@navigation_container.navigation/>
+<header>
+    <@navigation_container.navigation/>
+</header>
 
-<div class="container">
+<main>
+    <div class="container">
 
-    <div class="row">
-        About Me
+        <div class="row">
+            About Me
+        </div>
+
     </div>
-
-</div>
+</main>
 
 <#-- Import footer -->
 <@footer_container.footer/>
-</body>
 
+</body>
 </html>

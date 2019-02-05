@@ -15,3 +15,35 @@ blockquote {
 .medium-icon {
     font-size: medium;
 }
+
+.x-large-icon {
+    font-size: x-large;
+}
+
+footer i.fab {
+    font-size: x-large;
+    transition: font-size 0.3s;
+}
+
+footer i.fab:hover {
+    font-size: xx-large;
+    transition: font-size 1s;
+}
+
+/* label color */
+.input-field label {
+    color: #000 !important;
+}
+/* label focus color */
+.input-field input[type=text]:focus + label, textarea:focus + label {
+    color: #2196F3 !important;
+}
+/* label underline focus color */
+.input-field input[type=text]:focus, textarea:focus {
+    border-bottom: 1px solid #2196F3 !important;
+    box-shadow: 0 1px 0 0 #999 !important;
+}
+/* icon prefix focus color */
+.input-field .prefix.active {
+    color: #2196F3;
+}

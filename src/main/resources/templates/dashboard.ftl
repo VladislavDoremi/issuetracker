@@ -2,6 +2,7 @@
 <#import "macro/navigation.ftl" as navigation_container>
 <#import "macro/search.ftl" as search_container>
 <#import "macro/issue/list.ftl" as issue_list_container>
+<#import "macro/footer.ftl" as footer_container>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -13,29 +14,38 @@
 <#-- Import js dependency -->
 <@dependency_container.body_dependency />
 
-<#-- Import navigation -->
-<@navigation_container.navigation/>
+<header>
+    <#-- Import navigation -->
+    <@navigation_container.navigation/>
 
-<div class="container">
+    <div class="container">
 
-    <div class="row">
-        <#-- Import searchbar -->
-        <@search_container.search_navigation/>
+        <div class="row">
+            <#-- Import searchbar -->
+            <@search_container.search_navigation/>
+        </div>
     </div>
+</header>
 
-    <div class="row">
-        <#-- Import issue list -->
-        <@issue_list_container.issue_list issueList=issueList/>
-    </div>
+<main>
+    <div class="container">
 
-    <#-- Create issue button -->
-    <div class="fixed-action-btn">
-        <a class="btn-floating btn-large waves-effect waves-light light-blue darken-2">
-            <i class="material-icons">add</i>
-        </a>
+        <div class="row">
+            <#-- Import issue list -->
+            <@issue_list_container.issue_list issueList=issueList/>
+        </div>
+
+        <#-- Create issue button -->
+        <div class="fixed-action-btn">
+            <a href="/issue/form" class="btn-floating btn-large waves-effect waves-light light-blue darken-2">
+                <i class="material-icons">add</i>
+            </a>
+        </div>
     </div>
-</div>
+</main>
+
+<#-- Import footer -->
+<@footer_container.footer/>
 
 </body>
-
 </html>
