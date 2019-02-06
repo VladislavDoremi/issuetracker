@@ -1,6 +1,6 @@
-<#import "macro/dependency.ftl" as dependency_container>
-<#import "macro/navigation.ftl" as navigation_container>
-<#import "macro/footer.ftl" as footer_container>
+<#import "../macro/dependency.ftl" as dependency_container>
+<#import "../macro/navigation.ftl" as navigation_container>
+<#import "../macro/footer.ftl" as footer_container>
 
 <!DOCTYPE html>
 <html lang="en">

@@ -1,4 +1,4 @@
-package com.axmor.entity;
+package com.axmor.comment;
 
 public class Comment {
 

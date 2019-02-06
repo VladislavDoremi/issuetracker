@@ -1,10 +1,10 @@
 <#import "../modal/alert.ftl" as delete_button>
 <#import "item.ftl" as issue_item_container>
 
-<#macro issue_list issueList="${issueList}">
+<#macro issue_list>
     <ul class="collapsible popout">
     <#list issueList as item>
-    <@issue_item_container.issue_item issue=item/>
+        <@issue_item_container.issue_item issue=item/>
     <#else>
         <div>No issue!</div>
     </#list>

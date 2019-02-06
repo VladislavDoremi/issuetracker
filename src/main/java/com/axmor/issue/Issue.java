@@ -1,20 +1,16 @@
-package com.axmor.entity;
+package com.axmor.issue;
 
 public class Issue {
 
     private int id;
-
-    private String author;
-
+    private int authorId;
     private String title;
-
     private String description;
-
     private int status;
 
-    public Issue(int id, String author, String title, String description, int status) {
+    public Issue(int id, int authorId, String title, String description, int status) {
         this.id = id;
-        this.author = author;
+        this.authorId = authorId;
         this.title = title;
         this.description = description;
         this.status = status;
@@ -28,12 +24,12 @@ public class Issue {
         this.id = id;
     }
 
-    public String getAuthor() {
-        return author;
+    public int getAuthorId() {
+        return authorId;
     }
 
-    public void setAuthor(String author) {
-        this.author = author;
+    public void setAuthorId(int authorId) {
+        this.authorId = authorId;
     }
 
     public String getTitle() {

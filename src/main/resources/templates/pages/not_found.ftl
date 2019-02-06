@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Issue</title>
+    <title>Not Found</title>
 </head>
 <body>
-
+    Not Found
 </body>
 </html>

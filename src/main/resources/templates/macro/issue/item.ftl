@@ -45,7 +45,7 @@
         <div class="row">
             <div class="input-field col m6 s12">
                 <blockquote>
-                    <p><i class="material-icons medium-icon">person</i><b> Author: </b>${issue.author}</p>
+                    <p><i class="material-icons medium-icon">person</i><b> Author: </b>${issue.authorId}</p>
                     <p><i class="material-icons medium-icon">query_builder</i><b> Create: </b>01/01/2019</p>
                     <p><i class="material-icons medium-icon">watch_later</i><b> Edit: </b>01/01/2019</p>
                     <p><i class="material-icons medium-icon">watch_later</i><b> Deadline: </b>01/01/2019</p>

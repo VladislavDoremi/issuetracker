@@ -1,10 +1,4 @@
-package com.axmor.controller;
-
-import com.axmor.entity.Comment;
-import com.axmor.entity.Issue;
-
-import java.util.ArrayList;
-import java.util.List;
+package com.axmor.comment;
 
 public class CommentController {
 

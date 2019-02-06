@@ -1,4 +1,4 @@
-package com.axmor.dao;
+package com.axmor.comment;
 
 public class CommentDao {
 }

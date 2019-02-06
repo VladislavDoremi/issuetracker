@@ -1,8 +1,8 @@
-<#import "macro/dependency.ftl" as dependency_container>
-<#import "macro/navigation.ftl" as navigation_container>
-<#import "macro/search.ftl" as search_container>
-<#import "macro/issue/list.ftl" as issue_list_container>
-<#import "macro/footer.ftl" as footer_container>
+<#import "../macro/dependency.ftl" as dependency_container>
+<#import "../macro/navigation.ftl" as navigation_container>
+<#import "../macro/search.ftl" as search_container>
+<#import "../macro/issue/list.ftl" as issue_list_container>
+<#import "../macro/footer.ftl" as footer_container>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -32,7 +32,7 @@
 
         <div class="row">
             <#-- Import issue list -->
-            <@issue_list_container.issue_list issueList=issueList/>
+            <@issue_list_container.issue_list/>
         </div>
 
         <#-- Create issue button -->
