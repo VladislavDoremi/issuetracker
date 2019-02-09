@@ -8,11 +8,13 @@ public class Path {
         @Getter public static final String LOGIN = "/login/";
         @Getter public static final String LOGOUT = "/logout/";
         @Getter public static final String DASHBOARD = "/dashboard/";
-        @Getter public static final String ABOUT_ME = "/about/";
 
-        @Getter public static final String ONE_ISSUE = "/issue/:isbn/";
-        @Getter public static final String ALL_ISSUE = "/issues/";
-        @Getter public static final String ISSUE_CREATE = "/issue/create/";
+        @Getter public static final String ISSUE = "/issue/";
+        @Getter public static final String ISSUE_FORM = "/issue/form/";
+        @Getter public static final String ALL_ISSUES = "/issues/";
+
+        @Getter public static final String COMMENT = "/issue/:uuid/comments";
+        @Getter public static final String ALL_COMMENTS = "/issue/:uuid/comments";
     }
 
     public static class Template {
@@ -21,6 +23,8 @@ public class Path {
         public final static String LOGIN = "/pages/login.ftl";
         public final static String DASHBOARD = "/pages/dashboard.ftl";
         public final static String ABOUT_ME = "/pages/about_me.ftl";
+        public final static String CREATE_ISSUE = "/pages/issue/create_issue.ftl";
+        public final static String ISSUE = "/pages/issue/issue.ftl";
 
     }
 }

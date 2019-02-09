@@ -37,7 +37,7 @@
 
         <#-- Create issue button -->
         <div class="fixed-action-btn">
-            <a href="/issue/form" class="btn-floating btn-large waves-effect waves-light light-blue darken-2">
+            <a href="${WebPath.getISSUE_FORM()}" class="btn-floating btn-large waves-effect waves-light light-blue darken-2">
                 <i class="material-icons">add</i>
             </a>
         </div>

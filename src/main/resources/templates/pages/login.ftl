@@ -16,7 +16,7 @@
     <nav class="blue darken-2">
         <div class="container">
             <div class="nav-wrapper">
-                <a href="${WebPath.getDASHBOARD()}" class="brand-logo"><i class="fas fa-columns hide-on-small-and-down"></i>ITracker</a>
+                <a href="#" class="brand-logo"><i class="fas fa-columns hide-on-small-and-down"></i>ITracker</a>
             </div>
         </div>
     </nav>

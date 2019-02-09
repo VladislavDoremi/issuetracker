@@ -1,24 +1,28 @@
 package com.axmor.user;
 
-import lombok.Value;
+import lombok.Data;
 
-@Value
+import java.util.UUID;
+
+@Data
 public class User {
 
-    int id;
+    UUID userUuid;
     String username;
     String salt;
     String hashedPassword;
 
-    public User(int id, String username, String salt, String hashedPassword) {
-        this.id = id;
+    public User() {}
+
+    public User(UUID userUuid, String username, String salt, String hashedPassword) {
+        this.userUuid = userUuid;
         this.username = username;
         this.salt = salt;
         this.hashedPassword = hashedPassword;
     }
 
-    public int getId() {
-        return id;
+    public UUID getUserUuid() {
+        return userUuid;
     }
 
     public String getUsername() {

@@ -2,7 +2,7 @@ package com.axmor.user;
 
 import org.mindrot.jbcrypt.BCrypt;
 
-import static com.axmor.Application.userDao;
+import static com.axmor.Application.userModel;
 
 public class UserController {
 
@@ -11,7 +11,7 @@ public class UserController {
         if (username.isEmpty() || password.isEmpty()) {
             return false;
         }
-        User user = userDao.getUserByUsername(username);
+        User user = userModel.getUserByUsername(username);
         if (user == null) {
             return false;
         }

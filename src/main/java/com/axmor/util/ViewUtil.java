@@ -9,7 +9,7 @@ import spark.Route;
 import java.util.HashMap;
 import java.util.Map;
 
-import static com.axmor.util.FreeMarkerUtil.templateEngine;
+import static com.axmor.util.TemplateUtil.templateEngine;
 import static com.axmor.util.RequestUtil.getSessionCurrentUser;
 import static com.axmor.util.RequestUtil.getSessionLocale;
 
@@ -19,7 +19,7 @@ public class ViewUtil {
 
         //model.put("msg", new MessageBundle(getSessionLocale(request)));
         model.put("currentUser", getSessionCurrentUser(request));
-        model.put("WebPath", FreeMarkerUtil.getTemplateHashModel());
+        model.put("WebPath", TemplateUtil.getTemplateHashModel());
 
         return templateEngine().render(new ModelAndView(model, templatePath));
     }

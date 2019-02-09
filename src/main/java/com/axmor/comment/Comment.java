@@ -4,9 +4,9 @@ public class Comment {
 
     private int id;
 
-    private int issueId;
+    private int issue;
 
-    private String author;
+    private int author;
 
     private String description;
 

@@ -5,7 +5,7 @@
             <div class="card-panel">
                 <div>
                     <div class="input-field col s12">
-                        <input id="title" type="text" data-length="60" value="${issue.title}">
+                        <input id="title" type="text" data-length="60">
                         <label for="title">Title</label>
                         <span class="helper-text" data-error="The field is not correct!"
                               data-success="The field is correct">Please enter issue title</span>
@@ -15,10 +15,10 @@
                 <div>
                     <div class="input-field col m4 s12">
                         <select>
-                            <option value="1" <#if issue.status = 1>selected</#if>>New</option>
-                            <option value="2" <#if issue.status = 2>selected</#if>>In progress</option>
-                            <option value="3" <#if issue.status = 3>selected</#if>>Done</option>
-                            <option value="4" <#if issue.status = 4>selected</#if>>Cancel</option>
+                            <option value="1" selected>New</option>
+                            <option value="2" >In progress</option>
+                            <option value="3" >Done</option>
+                            <option value="4" >Cancel</option>
                         </select>
                         <label>Status</label>
                     </div>
@@ -37,7 +37,7 @@
                 <div>
                     <div class="input-field col s12">
                         <textarea id="description" type="text" class="materialize-textarea"
-                                  data-length="500">${issue.description}</textarea>
+                                  data-length="500"></textarea>
                         <label for="description">Description</label>
                         <span class="helper-text" data-error="The field is not correct!"
                               data-success="The field is correct.">Please describe the issue</span>
@@ -90,14 +90,13 @@
             });
 
             $( "#save-button" ).click(function() {
-                var uuid = "${issue.issueUuid}",
-                    title = $("#title").val(),
+                var title = $("#title").val(),
                     description = $("#description").val(),
                     status = $( "select option:selected" ).val();
 
                 $.ajax({
-                    url: '${WebPath.getISSUE()}?uuid=' + uuid,
-                    method: 'PUT',
+                    url: '${WebPath.getISSUE()}',
+                    method: 'POST',
                     data: {
                         title: title,
                         description: description,

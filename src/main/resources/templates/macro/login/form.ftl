@@ -15,7 +15,7 @@
 
                     <div>
                         <div class="input-field col s12">
-                            <input name="username" id="username" type="text" data-length="60" value="fari" required>
+                            <input name="username" id="username" type="text" data-length="60" value="doremi" required>
                             <label for="username">Login</label>
                             <span class="helper-text" data-error="The field is not correct!"
                                   data-success="The field is correct">Please enter user login</span>

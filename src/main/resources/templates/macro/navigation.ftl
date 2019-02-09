@@ -24,7 +24,6 @@
 
 <#macro link_list>
     <li><a href="${WebPath.getDASHBOARD()}"><i class="fas fa-columns medium-icon"></i> Dashboard</a></li>
-    <li><a href="${WebPath.getABOUT_ME()}"><i class="fas fa-info-circle medium-icon"></i> About Me</a></li>
 
     <#if currentUser??>
         <li>

@@ -8,7 +8,7 @@ import spark.template.freemarker.FreeMarkerEngine;
 
 import java.util.Map;
 
-public class FreeMarkerUtil {
+public class TemplateUtil {
 
     public static TemplateHashModel getTemplateHashModel() throws Exception {
         BeansWrapper wrapper = BeansWrapper.getDefaultInstance();

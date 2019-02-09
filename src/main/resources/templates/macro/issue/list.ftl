@@ -14,9 +14,23 @@
     <script >
         $(document).ready(function(){
             $('.collapsible').collapsible();
+
+            $(".delete-button").click( function () {
+                var uuid = $( this ).data("uuid");
+
+                $(".btn-agree").click( function () {
+                    $.ajax({
+                        url: '${WebPath.getISSUE()}?uuid=' + uuid,
+                        method: 'DELETE',
+                        success: function(data) {
+                            location.reload();
+                        }
+                    });
+                });
+            });
         });
     </script>
 
-    <@delete_button.delete id="delete-modal" href="#" title="Delete issue" message="Are you sure you want to delete issue?"/>
+    <@delete_button.delete id="delete-modal" title="Delete issue" message="Are you sure you want to delete issue?"/>
 
 </#macro>

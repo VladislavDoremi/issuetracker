@@ -1,58 +1,18 @@
 package com.axmor.issue;
 
+import lombok.Data;
+
+import java.util.UUID;
+
+@Data
 public class Issue {
 
-    private int id;
-    private int authorId;
+    private UUID issueUuid;
     private String title;
     private String description;
     private int status;
+    private UUID userUuid;
 
-    public Issue(int id, int authorId, String title, String description, int status) {
-        this.id = id;
-        this.authorId = authorId;
-        this.title = title;
-        this.description = description;
-        this.status = status;
-    }
+    public Issue() {}
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public int getAuthorId() {
-        return authorId;
-    }
-
-    public void setAuthorId(int authorId) {
-        this.authorId = authorId;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public int getStatus() {
-        return status;
-    }
-
-    public void setStatus(int status) {
-        this.status = status;
-    }
 }

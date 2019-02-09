@@ -1,4 +1,4 @@
-<#macro delete id="${id}" href="${href}" title="${title}" message="${message}">
+<#macro delete id="${id}" title="${title}" message="${message}">
     <!-- Modal Structure -->
     <div id="${id}" class="modal">
         <div class="modal-content">
@@ -7,7 +7,7 @@
         </div>
         <div class="modal-footer">
             <a href="#!" class="modal-close waves-effect waves-red btn-flat">Disagree</a>
-            <a href="${href}" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat btn-agree">Agree</a>
         </div>
     </div>
 

@@ -1,6 +1,6 @@
 <#import "../../macro/dependency.ftl" as dependency_container>
 <#import "../../macro/navigation.ftl" as navigation_container>
-<#import "../../macro/issue/form.ftl" as issue_form_container>
+<#import "../../macro/issue/create_form.ftl" as issue_form_container>
 <#import "../../macro/footer.ftl" as footer_container>
 
 <!DOCTYPE html>
@@ -20,12 +20,10 @@
 
 <main>
     <div class="container">
-
         <div class="row">
             <#-- Import issue form -->
             <@issue_form_container.form/>
         </div>
-
     </div>
 </main>
 
