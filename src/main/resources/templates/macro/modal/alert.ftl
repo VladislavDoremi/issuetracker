@@ -1,4 +1,4 @@
-<#macro delete id="${id}" title="${title}" message="${message}">
+<#macro alert id="${id}" title="${title}" message="${message}">
     <!-- Modal Structure -->
     <div id="${id}" class="modal">
         <div class="modal-content">

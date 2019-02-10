@@ -18,7 +18,7 @@
     <#-- Import navigation -->
     <@navigation_container.navigation/>
 
-    <div class="container">
+    <div id="search-container" class="container">
 
         <div class="row">
             <#-- Import searchbar -->

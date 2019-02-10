@@ -1,0 +1,32 @@
+//CREATE
+CREATE TABLE users(
+  userUuid          uuid DEFAULT RANDOM_UUID(),
+  username          varchar(255),
+  salt              varchar(255),
+  hashedPassword    varchar(255),
+  constraint pk_user primary key ( userUuid )
+);
+
+CREATE TABLE issues(
+  issueUuid         uuid DEFAULT RANDOM_UUID(),
+  title             varchar(255),
+  description       text,
+  status            int,
+  userUuid          uuid,
+  constraint pk_issue primary key ( issueUuid ),
+  constraint fk_user foreign key ( userUuid ) references users ( userUuid )
+);
+
+CREATE TABLE comments(
+  commentUuid       uuid DEFAULT RANDOM_UUID(),
+  issueUuid         uuid,
+  userUuid          uuid,
+  description       text,
+  constraint pk_comment primary key ( commentUuid ),
+  constraint fk_issue foreign key ( issueUuid ) references issues ( issueUuid )
+);
+
+//DROP
+DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS issues;
+DROP TABLE IF EXISTS comments;

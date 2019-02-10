@@ -19,7 +19,7 @@ public class UserModel {
     public User getUserByUsername(String username) {
         try (Connection connection = sql2o.open()) {
 
-            String query = "SELECT * FROM User WHERE username=:username";
+            String query = "SELECT * FROM Users WHERE username=:username";
 
             User user = connection.createQuery(query)
                     .addParameter("username", username)

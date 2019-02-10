@@ -72,7 +72,7 @@ public class IssueController {
             try {
                 Map<String, Object> model = new HashMap<String, Object>();
                 QueryParamsMap map = request.queryMap();
-                String uuid = map.get("uuid").value();
+                String uuid = map.get("issueUuid").value();
                 Issue issue = issueModel.fetchById(uuid);
                 model.put("issue", issue);
                 return ViewUtil.render(request, model, Path.Template.ISSUE);
@@ -113,7 +113,7 @@ public class IssueController {
 
         try {
             QueryParamsMap map = request.queryMap();
-            String uuid = map.get("uuid").value();
+            String uuid = map.get("issueUuid").value();
             String title = map.get("title").value();
             String description = map.get("description").value();
             Integer status = map.get("status").integerValue();
@@ -132,7 +132,7 @@ public class IssueController {
 
         try {
             QueryParamsMap map = request.queryMap();
-            String uuid = map.get("uuid").value();
+            String uuid = map.get("issueUuid").value();
             issueModel.delete(uuid);
             if (response.status() == 200) {
                 return 0;

@@ -1,5 +1,6 @@
 package com.axmor;
 
+import com.axmor.comment.CommentController;
 import com.axmor.comment.CommentModel;
 import com.axmor.dashboard.DashboardController;
 import com.axmor.index.IndexController;
@@ -35,7 +36,7 @@ public class Application {
         // Declare dependencies
         userModel = new UserModel(appSql);
         issueModel = new IssueModel(appSql);
-        commentModel = new CommentModel();
+        commentModel = new CommentModel(appSql);
 
         //Application config
         port(80);
@@ -55,17 +56,17 @@ public class Application {
         get(Path.Web.DASHBOARD,      DashboardController.serveDashboardPage);
 
         get(Path.Web.ALL_ISSUES,     IssueController.fetchAll);
-        get(Path.Web.ISSUE_FORM,          IssueController.form);
+        get(Path.Web.ISSUE_FORM,     IssueController.form);
         get(Path.Web.ISSUE,          IssueController.fetchById);
         post(Path.Web.ISSUE,         IssueController.create);
         put(Path.Web.ISSUE,          IssueController.update);
         delete(Path.Web.ISSUE,       IssueController.delete);
 
-        get(Path.Web.ALL_COMMENTS,   IssueController.fetchAll);
-        get(Path.Web.COMMENT,        IssueController.fetchById);
-        post(Path.Web.COMMENT,       IssueController.create);
-        put(Path.Web.COMMENT,        IssueController.update);
-        delete(Path.Web.COMMENT,     IssueController.delete);
+        get(Path.Web.ALL_COMMENTS,   CommentController.fetchAllByIssue);
+        get(Path.Web.COMMENT,        CommentController.fetchById);
+        post(Path.Web.COMMENT,       CommentController.create);
+        put(Path.Web.COMMENT,        CommentController.update);
+        delete(Path.Web.COMMENT,     CommentController.delete);
 
         get("*",               ViewUtil.notFound);
     }
