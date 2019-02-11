@@ -1,10 +1,7 @@
 package com.axmor.user;
 
-import lombok.Data;
-
 import java.util.UUID;
 
-@Data
 public class User {
 
     UUID userUuid;
@@ -25,15 +22,31 @@ public class User {
         return userUuid;
     }
 
+    public void setUserUuid(UUID userUuid) {
+        this.userUuid = userUuid;
+    }
+
     public String getUsername() {
         return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getSalt() {
         return salt;
     }
 
+    public void setSalt(String salt) {
+        this.salt = salt;
+    }
+
     public String getHashedPassword() {
         return hashedPassword;
+    }
+
+    public void setHashedPassword(String hashedPassword) {
+        this.hashedPassword = hashedPassword;
     }
 }

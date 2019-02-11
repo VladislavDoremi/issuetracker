@@ -14,6 +14,10 @@ function visibilityItems(iconVisibility) {
     });
 }
 
-function showComment() {
-
+function validationString(str) {
+    str = str.replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/script/g, "sсript")
+        .replace(/>/g, "&gt;");
+    return str;
 }

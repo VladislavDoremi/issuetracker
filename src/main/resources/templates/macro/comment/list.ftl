@@ -2,7 +2,7 @@
 <#import "item.ftl" as comment_item>
 
 <#macro comment_list>
-<ul>
+<ul class="collection">
     <#list comments as item>
         <@comment_item.comment_item comment=item/>
     <#else>

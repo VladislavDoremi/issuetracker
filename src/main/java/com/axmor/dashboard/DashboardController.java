@@ -12,7 +12,6 @@ import java.util.*;
 
 import static com.axmor.Application.issueModel;
 import static com.axmor.util.RequestUtil.clientAcceptsHtml;
-import static com.axmor.util.RequestUtil.clientAcceptsJson;
 
 public class DashboardController {
 
@@ -28,8 +27,13 @@ public class DashboardController {
             return ViewUtil.render(request, model, Path.Template.DASHBOARD);
         }
 
-        if (clientAcceptsJson(request)) {
-            //TODO: Вернуть контент в Json
+        return ViewUtil.notAcceptable.handle(request, response);
+    };
+
+    public static Route searchIssue = (Request request, Response response) -> {
+
+        if (clientAcceptsHtml(request)) {
+
         }
 
         return ViewUtil.notAcceptable.handle(request, response);

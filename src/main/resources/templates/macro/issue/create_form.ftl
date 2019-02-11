@@ -5,7 +5,7 @@
             <div class="card-panel">
                 <div>
                     <div class="input-field col s12">
-                        <input id="title" type="text" data-length="60">
+                        <input id="title" type="text" data-length="60" pattern="[0-9A-Fa-f]">
                         <label for="title">Title</label>
                         <span class="helper-text" data-error="The field is not correct!"
                               data-success="The field is correct">Please enter issue title</span>
@@ -13,24 +13,15 @@
                 </div>
 
                 <div>
-                    <div class="input-field col m4 s12">
-                        <select>
-                            <option value="1" selected>New</option>
-                            <option value="2" >In progress</option>
-                            <option value="3" >Done</option>
-                            <option value="4" >Cancel</option>
-                        </select>
-                        <label>Status</label>
-                    </div>
-                    <div class="input-field col m4 s12">
+                    <div class="input-field col m6 s12">
                         <i class="material-icons prefix">event</i>
-                        <input id="datepicker" type="text" class="datepicker">
-                        <label for="datepicker">Date</label>
+                        <input id="start-datepicker" type="text" class="datepicker">
+                        <label for="start-datepicker">Start date</label>
                     </div>
-                    <div class="input-field col m4 s12">
-                        <i class="material-icons prefix">schedule</i>
-                        <input id="timepicker" type="text" class="timepicker">
-                        <label for="timepicker">Time</label>
+                    <div class="input-field col m6 s12">
+                        <i class="material-icons prefix">event</i>
+                        <input id="deadline-datepicker" type="text" class="datepicker">
+                        <label for="deadline-datepicker">Deadline</label>
                     </div>
                 </div>
 
@@ -79,35 +70,59 @@
 
     <script>
         $(document).ready(function(){
-            $('input#title, textarea#description').characterCounter();
 
-            $('.datepicker').datepicker();
-            $('.timepicker').timepicker();
-            $('select').formSelect();
+            /* Инициализация datapicker*/
+            M.Datepicker.init($('.datepicker').datepicker(), {
+                defaultDate: new Date(),
+                setDefaultDate: true,
+                format: 'dd/mm/yyyy'
+            });
 
+            /* Объявление переменных*/
+            $titleInput = $('input#title');
+            $descriptionInput = $('textarea#description');
+
+            /* Счетчик символов*/
+            $titleInput.characterCounter();
+            $descriptionInput.characterCounter();
+
+            /* Очистка полей*/
             $( "#clear-button" ).click(function() {
-                $("input, textarea").val("");
+                $titleInput.val("");
+                $descriptionInput.val("");
             });
 
+            /* Сохранение записи*/
             $( "#save-button" ).click(function() {
-                var title = $("#title").val(),
-                    description = $("#description").val(),
-                    status = $( "select option:selected" ).val();
+                if ($titleInput.isEmpty) {
 
-                $.ajax({
-                    url: '${WebPath.getISSUE()}',
-                    method: 'POST',
-                    data: {
-                        title: title,
-                        description: description,
-                        status: status
-                    },
-                    success: function(data) {}
-                });
+                } else {
+                    var status = 1,
+                        title = $("#title").val(),
+                        description = $("#description").val(),
+                        startDate = $("#start-datepicker").val(),
+                        deadlineDate = $("#deadline-datepicker").val();
 
+                    title = validationString(title);
+                    description = validationString(description);
+
+
+                    $.ajax({
+                        url: '${WebPath.getISSUE()}',
+                        method: 'POST',
+                        data: {
+                            status: status,
+                            title: title,
+                            description: description,
+                            startDate: startDate,
+                            deadlineDate: deadlineDate
+                        },
+                        success: function(data) {
+                            location.href = ${WebPath.getDASHBOARD()};
+                        }
+                    });
+                }
             });
-
-
         });
     </script>
 

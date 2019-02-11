@@ -9,10 +9,15 @@ CREATE TABLE users(
 
 CREATE TABLE issues(
   issueUuid         uuid DEFAULT RANDOM_UUID(),
+  userUuid          uuid,
+  status            int,
   title             varchar(255),
   description       text,
-  status            int,
-  userUuid          uuid,
+  startDate         date,
+  deadlineDate      date,
+  createAt          date DEFAULT GETDATE(),
+  editAt            date DEFAULT GETDATE(),
+  deleted           boolean DEFAULT false,
   constraint pk_issue primary key ( issueUuid ),
   constraint fk_user foreign key ( userUuid ) references users ( userUuid )
 );
@@ -22,6 +27,9 @@ CREATE TABLE comments(
   issueUuid         uuid,
   userUuid          uuid,
   description       text,
+  createAt          date DEFAULT GETDATE(),
+  editAt            date DEFAULT GETDATE(),
+  deleted           boolean DEFAULT false,
   constraint pk_comment primary key ( commentUuid ),
   constraint fk_issue foreign key ( issueUuid ) references issues ( issueUuid )
 );

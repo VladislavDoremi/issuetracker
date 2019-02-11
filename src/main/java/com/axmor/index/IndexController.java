@@ -12,6 +12,9 @@ import java.util.Map;
 public class IndexController {
 
     public static Route serveIndexPage = (Request request, Response response) -> {
+
+        response.redirect(Path.Web.DASHBOARD);
+
         Map<String, Object> model = new HashMap<>();
         return ViewUtil.render(request, model, Path.Template.INDEX);
     };

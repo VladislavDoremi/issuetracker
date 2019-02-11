@@ -13,24 +13,15 @@
                 </div>
 
                 <div>
-                    <div class="input-field col m4 s12">
-                        <select id="issue-status">
-                            <option value="1" <#if issue.status = 1>selected</#if>>New</option>
-                            <option value="2" <#if issue.status = 2>selected</#if>>In progress</option>
-                            <option value="3" <#if issue.status = 3>selected</#if>>Done</option>
-                            <option value="4" <#if issue.status = 4>selected</#if>>Cancel</option>
-                        </select>
-                        <label>Status</label>
-                    </div>
-                    <div class="input-field col m4 s12">
+                    <div class="input-field col m6 s12">
                         <i class="material-icons prefix">event</i>
-                        <input id="issue-datepicker" type="text" class="datepicker">
-                        <label for="issue-datepicker">Date</label>
+                        <input id="start-datepicker" type="text" class="datepicker" value="${issue.startDate}">
+                        <label for="start-datepicker">Start date</label>
                     </div>
-                    <div class="input-field col m4 s12">
-                        <i class="material-icons prefix">schedule</i>
-                        <input id="issue-timepicker" type="text" class="timepicker">
-                        <label for="issue-timepicker">Time</label>
+                    <div class="input-field col m6 s12">
+                        <i class="material-icons prefix">event</i>
+                        <input id="deadline-datepicker" type="text" class="datepicker" value="${issue.deadlineDate}">
+                        <label for="deadline-datepicker">Deadline</label>
                     </div>
                 </div>
 
@@ -81,29 +72,39 @@
         $(document).ready(function(){
             $('input#title, textarea#description').characterCounter();
 
-            $('.datepicker').datepicker();
-            $('.timepicker').timepicker();
-            $('select').formSelect();
+            /* Инициализация datapicker*/
+            M.Datepicker.init($('.datepicker').datepicker(), {
+                format: 'dd/mm/yyyy'
+            });
+
+            //$('select').formSelect();
 
             $( "#clear-issue-btn" ).click(function() {
-                $("input, textarea").val("");
+                $("input#issue-title, textarea#issue-description").val("");
             });
 
             $( "#save-issue-btn" ).click(function() {
                 var issueUuid = "${issue.issueUuid}",
+                    status = "${issue.status}",//$( "#issue-status option:selected" ).val(),
                     title = $("#issue-title").val(),
                     description = $("#issue-description").val(),
-                    status = $( "#issue-status option:selected" ).val();
+                    startDate = $("#start-datepicker").val(),
+                    deadlineDate = $("#deadline-datepicker").val()
+
 
                 $.ajax({
                     url: '${WebPath.getISSUE()}?issueUuid=' + issueUuid,
                     method: 'PUT',
                     data: {
+                        status: status,
                         title: title,
                         description: description,
-                        status: status
+                        startDate: startDate,
+                        deadlineDate: deadlineDate
                     },
-                    success: function(data) {}
+                    success: function(data) {
+                        location.href = ${WebPath.getDASHBOARD()};
+                    }
                 });
 
             });

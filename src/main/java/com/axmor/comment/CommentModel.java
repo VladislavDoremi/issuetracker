@@ -1,10 +1,8 @@
 package com.axmor.comment;
 
-import com.axmor.issue.Issue;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 
-import java.sql.SQLException;
 import java.util.List;
 import java.util.UUID;
 
@@ -19,9 +17,7 @@ public class CommentModel {
     public List<Comment> fetchAllByIssue(String issueUuid) {
         try (Connection connection = sql2o.open()) {
 
-            String query = "SELECT * FROM Comments WHERE issueUuid=:issueUuid";
-
-            System.out.println("SELECT * FROM Comments WHERE issueUuid=" + issueUuid);
+            String query = "SELECT * FROM Comments WHERE issueUuid=:issueUuid AND deleted=false";
 
             List<Comment> comments = connection.createQuery(query)
                     .addParameter("issueUuid", issueUuid)
@@ -75,7 +71,8 @@ public class CommentModel {
     public void delete(String commentUuid) {
         try (Connection connection = sql2o.open()) {
 
-            String query = "DELETE FROM Comments WHERE commentUuid=:commentUuid";
+            //String query = "DELETE FROM Comments WHERE commentUuid=:commentUuid";
+            String query = "UPDATE Issues SET deleted=true WHERE commentUuid=:commentUuid";
 
             connection.createQuery(query)
                     .addParameter("commentUuid", commentUuid)
