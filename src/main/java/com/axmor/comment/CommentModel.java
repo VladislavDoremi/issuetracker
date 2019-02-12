@@ -26,18 +26,6 @@ public class CommentModel {
         }
     }
 
-    public Comment fetchById(String commentUuid) {
-        try (Connection connection = sql2o.open()) {
-
-            String query = "SELECT * FROM Comments WHERE commentUuid=:commentUuid";
-
-            Comment comment = connection.createQuery(query)
-                    .addParameter("commentUuid", commentUuid)
-                    .executeAndFetchFirst(Comment.class);
-            return comment;
-        }
-    }
-
     public void create(UUID commentUuid, String issueUuid, UUID userUuid, String description) {
 
         try (Connection connection = sql2o.open()) {
@@ -51,32 +39,6 @@ public class CommentModel {
                     .addParameter("description", description)
                     .executeUpdate();
 
-            connection.commit();
-        }
-    }
-
-    public void update(String commentUuid, String description) {
-        try (Connection connection = sql2o.open()) {
-
-            String query = "UPDATE Comments SET description=:description WHERE commentUuid=:commentUuid";
-
-            connection.createQuery(query)
-                    .addParameter("commentUuid", commentUuid)
-                    .addParameter("description", description)
-                    .executeUpdate();
-            connection.commit();
-        }
-    }
-
-    public void delete(String commentUuid) {
-        try (Connection connection = sql2o.open()) {
-
-            //String query = "DELETE FROM Comments WHERE commentUuid=:commentUuid";
-            String query = "UPDATE Issues SET deleted=true WHERE commentUuid=:commentUuid";
-
-            connection.createQuery(query)
-                    .addParameter("commentUuid", commentUuid)
-                    .executeUpdate();
             connection.commit();
         }
     }

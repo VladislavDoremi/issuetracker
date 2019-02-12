@@ -14,7 +14,6 @@ public class DataSource {
     static {
         config = new HikariConfig();
         config.setJdbcUrl("jdbc:h2:tcp://localhost/~/test");
-        //config.setDataSourceClassName("org.h2.jdbcx.JdbcDataSource");
         config.setUsername( "sa" );
         config.setPassword( "" );
 

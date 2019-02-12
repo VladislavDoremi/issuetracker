@@ -1,6 +1,5 @@
 <#import "../macro/dependency.ftl" as dependency_container>
 <#import "../macro/navigation.ftl" as navigation_container>
-<#import "../macro/search.ftl" as search_container>
 <#import "../macro/issue/list.ftl" as issue_list_container>
 <#import "../macro/footer.ftl" as footer_container>
 
@@ -18,13 +17,6 @@
     <#-- Import navigation -->
     <@navigation_container.navigation/>
 
-    <div id="search-container" class="container">
-
-        <div class="row">
-            <#-- Import searchbar -->
-            <@search_container.search_navigation/>
-        </div>
-    </div>
 </header>
 
 <main>

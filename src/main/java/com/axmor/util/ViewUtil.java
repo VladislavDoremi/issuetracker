@@ -17,7 +17,6 @@ public class ViewUtil {
 
     public static String render(Request request, Map model, String templatePath) throws Exception {
 
-        //model.put("msg", new MessageBundle(getSessionLocale(request)));
         model.put("currentUser", getSessionCurrentUser(request));
         model.put("WebPath", TemplateUtil.getTemplateHashModel());
 

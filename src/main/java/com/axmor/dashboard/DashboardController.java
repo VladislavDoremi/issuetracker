@@ -30,13 +30,4 @@ public class DashboardController {
         return ViewUtil.notAcceptable.handle(request, response);
     };
 
-    public static Route searchIssue = (Request request, Response response) -> {
-
-        if (clientAcceptsHtml(request)) {
-
-        }
-
-        return ViewUtil.notAcceptable.handle(request, response);
-    };
-
 }
