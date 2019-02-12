@@ -30,7 +30,6 @@ public class Application {
 
     public static void main(String[] args) {
 
-
         appSql = new Sql2o(DataSource.getDataSource());
 
         // Declare dependencies
@@ -49,11 +48,12 @@ public class Application {
         before("*",                     Filters.handleLocaleChange);
 
         //Routs
-        get(Path.Web.INDEX,                   IndexController.serveIndexPage);
+        get(Path.Web.INDEX,                   DashboardController.serveDashboardPage);
+        get(Path.Web.DASHBOARD,               DashboardController.serveDashboardPage);
         get(Path.Web.LOGIN,                   LoginController.serveLoginPage);
         post(Path.Web.LOGIN,                  LoginController.handleLoginPost);
         post(Path.Web.LOGOUT,                 LoginController.handleLogoutPost);
-        get(Path.Web.DASHBOARD,               DashboardController.serveDashboardPage);
+
 
         get(Path.Web.ISSUE_FORM,              IssueController.form);
         get(Path.Web.ISSUE,                   IssueController.fetchById);
@@ -63,10 +63,7 @@ public class Application {
         delete(Path.Web.ISSUE,                IssueController.delete);
 
         get(Path.Web.ALL_COMMENTS,            CommentController.fetchAllByIssue);
-        get(Path.Web.COMMENT,                 CommentController.fetchById);
         post(Path.Web.COMMENT,                CommentController.create);
-        put(Path.Web.COMMENT,                 CommentController.update);
-        delete(Path.Web.COMMENT,              CommentController.delete);
 
         get("*",                         ViewUtil.notFound);
     }

@@ -4,10 +4,10 @@ import java.util.UUID;
 
 public class User {
 
-    UUID userUuid;
-    String username;
-    String salt;
-    String hashedPassword;
+    private UUID userUuid;
+    private String username;
+    private String salt;
+    private String hashedPassword;
 
     public User() {}
 
