@@ -1,0 +1,68 @@
+⦁	Введение
+Цель задания – посмотреть, насколько эффективно и полно вы осваиваете новую для вас область, а также качество результатов работы. Задание необходимо выполнять самостоятельно, т.к. прежде всего это даст вам понимание, сможете ли вы эффективно выполнять подобного рода задачи у нас. Можно свободно пользоваться любыми доступными материалами.
+⦁	Постановка задачи
+Задание – написать простое веб-приложение, в котором пользователи смогут управлять задачами (Issue Tracker). Приложение должно удовлетворять спецификации (см. раздел Specification).
+
+Перед выполнением задания нужно сделать следующие шаги:
+⦁	Завести аккаунт на ⦁	https⦁	://⦁	github⦁	.⦁	com (если ещё не заведён)
+⦁	Сделать fork репозитория https://github.com/axmor/issuetracker
+⦁	Установить git (если ещё не установлен)
+⦁	Клонировать новый репозиторий на компьютер
+⦁	Собрать и запустить приложение согласно инструкции на github
+
+Вся дальнейшая работа должна проводиться в этом репозитории. Можно использовать любую удобную среду разработки (Eclipse, IntelliJ IDEA, NetBeans).  После окончания работы изменения должны быть синхронизированы с github’ом (git push). Pull request делать не нужно. Проверяющему нужно будет выслать адрес репозитория.
+
+В процессе работы можно подключать все необходимые библиотеки (см. pom.xml). Проверяющий должен иметь возможность без труда собрать и запустить проект (в идеале команд mvn clean install и mvn exec:java должно быть достаточно).
+⦁	Критерии оценки результата
+После выполнения задания указать:
+⦁	Время (в часах), потраченное на изучение материала
+⦁	Полное время (в часах), потраченное на выполнение задания, включая изучение материала
+
+Оцениваемые критерии:
+⦁	Удовлетворение исходных требований
+⦁	Корректность использования технологий
+⦁	Оптимальность полученного решения
+⦁	Качество исходного кода (структурирование, дизайн классов, избыточность)
+⦁	Внешний вид исходного кода
+⦁	Документирование
+⦁	Наличие ошибок
+⦁	Скорость выполнения задания
+
+Максимальное время выполнения – 1 неделя. Сдача раньше срока является дополнительным, но не главным плюсом.
+⦁	Specification
+Functional Requirements
+The task is to develop a simple Issue Tracker system with a web interface using Spark Web Framework (http://sparkjava.com). See http://sparkjava.com/tutorials/ for examples.
+
+You are free to use any additional libraries. This is the recommended list:
+⦁	Database – H2 (http://www.h2database.com/html/main.html)
+⦁	CSS – Bootstrap (http://getbootstrap.com/)
+
+The application should show a list of available issues. It should allow creating/commenting/modifying/deleting of issues. The application must consist of (at least) 3 pages.
+
+⦁	Index page. Contains a list of all available issues.
+
+⦁	Create issue page. Start date and status field should be automatically populated. The application should validate form data and escape data from user input.
+
+⦁	View and comment issue page.
+
+(These previews are just examples. You do not have to make the pages looking exactly like that. Another example is https://youtrack.jetbrains.com/issues)
+
+Other functional requirements are:
+⦁	The application should retrieve the data from and store it in the database
+⦁	All forms must support validation and display errors
+⦁	User authentication and authorization is required
+⦁	Non-functional Requirements
+⦁	Attractive UI design is not required (usability is the primary goal)
+⦁	Optional requirements (not required but would be a benefit)
+⦁	Unit tests for application components.
+⦁	Extra requirement. Implement the ability to support some subset of HTML tags (e.g. <b> <li>) in issue description and comments for basic formatting. Pay attention to ban potentially unsafe HTML (e.g. JavaScript inclusions).
+⦁	Extra requirement. Implement pagination and sorting issues on the overview page.
+⦁	Extra requirement. Implement some search and filtering issues on the overview page.
+
+Notice: the applicant should concentrate on the proper implementation of the main task (creating/changing issues). Extra requirements are secondary. Start working on these requirements if you are sure that the main work has been done and it satisfies the requirements. You are free to choose any of the three extra requirement. You can also implement any additional features if you think they are reasonable.
+⦁	Common Pitfalls
+Here is the list of the most common mistakes made by newcomers:
+SQL injection. SQL statements should not be constructed using string concatenation (e.g. “SELECT * FROM USERS WHERE USERNAME = “ + username). Solution: use parameterized statements instead.
+HTML injection. Solution: use escaping of HTML symbols to prevent this vulnerability.
+⦁	The application does not reuse database connections. Solution: use a ⦁	connection pool (e.g. ⦁	HikariCP).
+Before submitting, please verify your application against this list.
